@@ -1,0 +1,36 @@
+
+    
+
+.table-view{
+    border: 100px;
+    font-size: 1.5rem;
+    padding: 20px;
+    border-color: aqua;
+    border-radius: 20px;
+    color: black;
+    background-color: var(--primary);
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    overflow: scroll;
+}
+    
+
+.Cabeçalho{
+    gap:10px;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    
+}
+
+.dados{
+    /* border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black; */
+    justify-content: space-between none;
+    
+   
+    font-size: 20px;
+
+}
