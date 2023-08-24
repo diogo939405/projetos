@@ -1,0 +1,53 @@
+.titulo{
+    text-align: center;
+    height: 6vh;
+    color: rgb(70, 29, 29);
+    font-size: 40px;
+}
+
+.form{
+    position: absolute; 
+    left: 490px; /* posiciona a 90px para a esquerda */ 
+    top: 90px; /* posiciona a 70px para baixo */
+        text-align: center;
+        padding: 20px;
+        color: whitesmoke;
+        font-weight: bolder;
+        font-size: 25px;
+        width: 300px;
+        background-color: rgb(70, 29, 29);
+        border-radius: 20px;
+}
+.field{
+    border: 3px solid whitesmoke;
+}
+
+.legend{
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.botao{
+    
+        padding: 10px;
+        margin: 10px;
+        font-size: 18px;
+        width: 220px;
+        background-color:  rgb(70, 29, 29); ;
+        color:whitesmoke;
+        border-radius: 20px;
+        outline: none;     
+}
+.botao:hover{
+    
+}
+
+.caixa{
+        width: 200px;
+        height: 6vh;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    ::placeholder{
+        text-align: left;
+    }
