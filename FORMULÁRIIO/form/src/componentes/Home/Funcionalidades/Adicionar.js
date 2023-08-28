@@ -1,5 +1,5 @@
 import React , { useState } from 'react'
-import './estilo/adicionar.css'
+import '../estilo/adicionar.css'
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 

@@ -12,15 +12,17 @@ import 'primeicons/primeicons.css';
 import BemVindo from './layout/BemVindo';
 import Login from './componentes/login/login';
 import Inicio, { dadosLoader } from './componentes/Home/Inicio';
-import Adicionar from './componentes/Home/Adicionar';
+import Adicionar from './componentes/Home/Funcionalidades/Adicionar';
 import Alterar from './componentes/Home/Alterar';
-import Remover from './componentes/Home/Remover';
+import Remover from './componentes/Home/Funcionalidades/Remover';
 import MenuLayout from './layout/MenuLayout';
+import ControleLayout from './layout/ControleLayout';
+
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<BemVindo/>}>,
+    <Route path="/" element={<BemVindo/>}>
     <Route path="Login" element={<Login/>}/>
         <Route index element={<Login/>}/>
         
@@ -29,10 +31,13 @@ const router = createBrowserRouter(
           element={<Inicio/>}
           loader={dadosLoader}
           />
-            <Route path='Adicionar' element={<Adicionar/>}/>
-            <Route path='Alterar' element={<Alterar/>}/>
-            <Route path='Remover' element={<Remover/>}/>
+            <Route path='Funcionalidades' element={<ControleLayout/>}>
+              <Route path='Adicionar' element={<Adicionar/>}/>
+              <Route path='Remover' element={<Remover/>}/>
         </Route>
+        
+        </Route>
+
           
 
          </Route>

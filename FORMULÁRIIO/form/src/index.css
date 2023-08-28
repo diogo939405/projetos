@@ -58,4 +58,9 @@ header nav button:hover{
   font-weight: bolder;
 }
 
-
+.nav-controle{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+}

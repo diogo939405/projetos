@@ -1,5 +1,5 @@
 import React from 'react'
-import './estilo/Remover.css'
+import '../estilo/Remover.css'
 
 export default function Remover() {
   return (
