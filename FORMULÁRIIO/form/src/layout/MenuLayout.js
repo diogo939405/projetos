@@ -3,6 +3,7 @@ import { Outlet,NavLink } from 'react-router-dom'
 
 
 
+
 export default function MenuLayout() {
   return (
     <div className='botao-menu'>
@@ -14,7 +15,17 @@ export default function MenuLayout() {
      <NavLink to="/Home/Adicionar"><button>Adicionar </button></NavLink>
      <NavLink to="/Home/Remover"><button>Remover</button></NavLink> 
      <NavLink to="/Home/Alterar"><button>Alterar</button></NavLink>
+{/* 
+      <div className='Icon'>
+      <i className="pi pi-check" style={{ fontSize: '1rem',color:'white' }}></i>
+      </div> */}
        </nav> 
+       {/* <div className='Mobile'>
+       <NavLink to="/Home/Inicio">Home</NavLink>
+     <NavLink to="/Home/Adicionar">Adicionar</NavLink>
+     <NavLink to="/Home/Remover">Remover</NavLink> 
+     <NavLink to="/Home/Alterar">Alterar</NavLink>
+       </div> */}
      </header>
      <main>
       <Outlet/>

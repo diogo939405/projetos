@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+
 body {
   margin: 0;
   padding: 20px;
   font-family: "Poppins";
   background: var(--secondary);
 }
+
+@media  (max-width: 1200px) {
+  /* .menu { width:600px; } */
+  body{
+    width: 1000px;
+  }
+  }
 
 :root {
   --primary: rgba(251, 248, 248, 0.763);
@@ -49,4 +57,5 @@ header nav button:hover{
   color: var(--primary);
   font-weight: bolder;
 }
+
 
