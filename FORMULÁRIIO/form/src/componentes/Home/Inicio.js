@@ -49,6 +49,6 @@ return (
 }
 
 export const dadosLoader = async () =>{
-   const res = await fetch ('https://my.api.mockaroo.com/form.json?key=aa93c710')
+   const res = await fetch ('http://localhost:4000/usuarios')
    return res.json()
 }

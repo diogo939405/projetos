@@ -13,7 +13,7 @@ export default function MenuLayout() {
           <h1 >Sistema de cadastro</h1>
      <NavLink to="/Home/Inicio"><button >Home </button></NavLink>
      <NavLink to="/Home/Funcionalidades"><button>Funcionalidades </button></NavLink>
-     <NavLink to="/Home/Remover"><button>Remover</button></NavLink> 
+
      <NavLink to="/Home/Alterar"><button>Alterar</button></NavLink>
 {/* 
       <div className='Icon'>
