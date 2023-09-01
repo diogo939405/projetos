@@ -10,10 +10,10 @@ const dadosProntos = useLoaderData()
 return (
   <div className="card">
       <DataTable value={dadosProntos} scrollable scrollHeight="70vh"  tableStyle={{ minWidth: '50rem' }}>
-          <Column field="Nome" header="Nome"></Column>
-          <Column field="Sobrenome" header="Sobrenome"></Column>
-          <Column field="email" header="email"></Column>
-          <Column field="Genero" header="genero"></Column>
+          <Column field="nome" header="Nome"></Column>
+          <Column field="sobrenome" header="Sobrenome"></Column>
+          <Column field="email" header="Email"></Column>
+          <Column field="genero" header="Genero"></Column>
       </DataTable>
   </div>
 );
