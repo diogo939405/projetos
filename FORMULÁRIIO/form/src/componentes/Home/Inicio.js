@@ -2,18 +2,28 @@ import { useLoaderData } from "react-router-dom"
 import './estilo/Inicio.css'
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+        
 
 
 export default function Inicio() {
 const dadosProntos = useLoaderData()
+const botaoDelete = () =>{
+  return <Button icon="pi pi-times" rounded severity="danger" aria-label="Cancel" />
+}
+
+const botaoAlterar = () =>{
+  return <Button icon="pi pi-search" severity="success" aria-label="Search" />
+}
 
 return (
   <div className="card">
       <DataTable value={dadosProntos} scrollable scrollHeight="70vh"  tableStyle={{ minWidth: '50rem' }}>
           <Column field="nome" header="Nome"></Column>
           <Column field="sobrenome" header="Sobrenome"></Column>
-          <Column field="email" header="Email"></Column>
-          <Column field="genero" header="Genero"></Column>
+          <Column field="email" header="email"></Column>
+          <Column field="genero" header="genero" ></Column>
+          <Column field="acoes" header="Ações" body={botaoDelete } style={{ minWidth: '2rem' }} ></Column>
       </DataTable>
   </div>
 );
