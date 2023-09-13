@@ -14,25 +14,23 @@ export default function Inicio() {
   //   this.usuarioAtual = {};
   // });
 
-
-const dadosProntos = useLoaderData()
-const rowSelect = (row) =>{
-  console.log('=======================', row.data.id, row.data);
-  setUsuarioAtual(row.data)
-}
-const botaoDelete = (rowData) =>{
-  return <Button onClick={() => 
-    deleteUser(rowData)} icon="pi pi-times" rounded severity="danger" aria-label="Cancel"   />
-}
+  const [selectedUsuarios, setSelectedUsuarios] = useState([]);
+  const dadosProntos = useLoaderData();
+  const rowSelect = (row) => {
+    console.log('=======================', selectedUsuarios);
+    setUsuarioAtual(row.data)
+  };
+  const botaoDelete = (rowData) => {
+    return <Button onClick={() =>
+      deleteUser(rowData)} icon="pi pi-times" rounded severity="danger" aria-label="Cancel" />
+  };
 
   const deleteUser = (data) => {
-  console.log('ON DELETE ',data);
    axios.delete(`http://localhost:4000/usuarios/${data.id}`)
    .then(res =>{
     // console.log("AAAAAAAAAAAAAAAAA")
    })
   //  .catch(err => console.log("erro"))
-  
 }
 
   
@@ -45,10 +43,13 @@ const botaoAlterar = () =>{
   return (
     
   <div className="card">
-      <h1>{ usuarioAtual.nome}</h1>
-      <DataTable value={dadosProntos} scrollable scrollHeight="70vh"  
-      onRowClick={rowSelect}
-      selectionMode={'single'}
+      <h1>{ selectedUsuarios.length}</h1>
+      <DataTable value={dadosProntos} scrollable scrollHeight="70vh"
+        onRowClick={rowSelect}
+        dataKey="id"
+        selectionMode="multiple"
+        selection={selectedUsuarios}
+        onSelectionChange={(e) => setSelectedUsuarios(e.value)}
       tableStyle={{ minWidth: '50rem' }}>
           <Column field="nome" header="Nome"></Column>
           <Column field="sobrenome" header="Sobrenome"></Column>
