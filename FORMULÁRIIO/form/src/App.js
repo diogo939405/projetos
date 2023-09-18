@@ -32,6 +32,9 @@ const router = createBrowserRouter(
           element={<Inicio/>}
           loader={dadosLoader}
           />
+          <Route path='Alterar' element={<Alterar/>}/>
+
+
             <Route path='Funcionalidades' element={<ControleLayout/>}>
               <Route path='Adicionar' element={<Adicionar/>}/>
               <Route path='Remover' element={<Remover/>}/>

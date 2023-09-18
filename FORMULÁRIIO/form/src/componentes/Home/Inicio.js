@@ -1,32 +1,97 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData,useNavigate,Link } from "react-router-dom"
 import './estilo/Inicio.css'
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
-        
+import React, { useState} from 'react';
+import axios from "axios"
+
 
 
 export default function Inicio() {
-const dadosProntos = useLoaderData()
-const botaoDelete = () =>{
-  return <Button icon="pi pi-times" rounded severity="danger" aria-label="Cancel" />
+  const [usuarioAtual, setUsuarioAtual] = useState({});
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   this.usuarioAtual = {};
+  // });
+
+  const [selectedUsuarios, setSelectedUsuarios] = useState([]);
+  const dadosProntos = useLoaderData();
+  const [rowClick, setRowClick] = useState(true);
+  
+  const rowSelect = (row) => {
+    console.log('=======================', selectedUsuarios);
+    setUsuarioAtual(row.data)
+  };
+
+  
+  
+  // const botaoDelete = (rowData) => {
+  //   return <Button onClick={() =>
+  //     deleteUser(rowData)} icon="pi pi-times" rounded severity="danger" aria-label="Cancel" />
+  // };
+
+   const updateUser = (data) => {
+   
 }
 
-const botaoAlterar = () =>{
-  return <Button icon="pi pi-search" severity="success" aria-label="Search" />
-}
+  const botaoUpdate = (rowdata) =>{
+    return <Link to={`/Home/Alterar`}>
+      <Button  onClick={() => updateUser(rowdata)}  icon="pi pi-times" rounded severity="danger" aria-label="Cancel" />
 
-return (
+    </Link> 
+  }
+  
+
+//   const deleteUser = (data) => {
+//     const confirma = window.confirm("Deseja apagar?");
+//     if(confirma){
+//       axios.delete(`http://localhost:4000/usuarios/${data.id}`)
+//       .then(res =>{
+//         window.location.reload()
+//       })
+//      //  .catch(err => console.log("erro"));
+//     }
+   
+// }
+
+
+  return (
+    
   <div className="card">
-      <DataTable value={dadosProntos} scrollable scrollHeight="70vh"  tableStyle={{ minWidth: '50rem' }}>
+      {/* <h1>{ selectedUsuarios.length}</h1> */}
+
+      
+      <DataTable value={dadosProntos} scrollable scrollHeight="70vh"
+        // onRowClick={rowSelect}
+        dataKey="id"
+        selectionMode={rowClick ? null : 'checkbox'}
+        selection={selectedUsuarios}
+        onSelectionChange={(e) => setSelectedUsuarios(e.value)}
+      tableStyle={{ minWidth: '50rem' }}>
+          <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
           <Column field="nome" header="Nome"></Column>
           <Column field="sobrenome" header="Sobrenome"></Column>
           <Column field="email" header="email"></Column>
           <Column field="genero" header="genero" ></Column>
-          <Column field="acoes" header="Ações" body={botaoDelete } style={{ minWidth: '2rem' }} ></Column>
+          <Column header="Ações" body={botaoUpdate}  style={{ minWidth: '2rem' }}  ></Column>
       </DataTable>
   </div>
 );
+
+
+  
+}
+
+
+
+export const dadosLoader = async () =>{
+   const res = await fetch ('http://localhost:4000/usuarios')
+   return res.json()
+}
+
 
 // //   return (
 // //     <div className='tabela'>
@@ -55,10 +120,3 @@ return (
 // //   </fieldset>
 // // </table>
 //     </div>
-  
-}
-
-export const dadosLoader = async () =>{
-   const res = await fetch ('http://localhost:4000/usuarios')
-   return res.json()
-}

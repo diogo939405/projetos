@@ -29,7 +29,6 @@ export default function Adicionar() {
 
   const { nome, sobrenome, email, genero } = user;
   const onInputChange = e => {
-    console.log(e, user, e.target)
     setUser({ ...user, [e.target.id]: e.target.value })
   };
 
