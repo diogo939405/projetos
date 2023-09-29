@@ -1,58 +1,64 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../Home/estilo/Alterar.css'
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import {  useParams} from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 
 
 
 export default function Alterar() {
-   
-  const id = useParams();
-  const [user, setUser] = useState({
-    nome: "",
-    sobrenome: "",
-    email: "",
-    genero: ""
-  });
+  const navegar = useNavigate();
+  const location = useLocation();
+  const data = location.state;
+  console.log(data);
+  
+  const [user, setUser] = useState(data)
 
   const { nome, sobrenome, email, genero } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.id]: e.target.value })
   };
 
-  useEffect(() =>{
-    axios.get('http://localhost:4000/usuarios' +id)
-    .then(res => setUser(res.data))
-    .catch(err => console.log(err))
-  },[])
+  
+  const onSubmit = async e => {
+    e.preventDefault();
+    user.Nome = e.target[0].value;
+    user.Sobrenome = e.target[1].value;
+    user.email = e.target[2].value;
+    user.Genero = e.target[3].value
+    await axios.put("http://localhost:4000/usuarios/" + user.id, user);
+    console.log('========================  teste')
+    navegar(-1)
+
+  }
 
   return (
     <div className='Form'>
-      <form className='form-body' >
+      <form className='form-body' onSubmit={e => onSubmit(e)} >
         <span className="p-float-label">
-          <InputText id="nome" value={user.nome} onChange={e => onInputChange(e)} />
-          <label htmlFor="username" className='inside-text'>nome</label>
+          <InputText id="Nome" value={nome} onChange={e => onInputChange(e)} />
+          <label htmlFor="username" className='inside-text'>Nome</label>
         </span>
         <br />
         <span className="p-float-label">
-          <InputText id="sobrenome" value={user.sobrenome} onChange={e => onInputChange(e)} />
-          <label htmlFor="username">sobrenome</label>
+          <InputText id="Sobrenome" value={sobrenome}
+            onChange={e => onInputChange(e)} />
+          <label htmlFor="username">Sobrenome</label>
 
         </span>
         <br />
         <span className="p-float-label">
-          <InputText id="email" value={user.email} onChange={e => onInputChange(e)} />
-          <label htmlFor="username">email</label>
+          <InputText id="email" value={email} onChange={e => onInputChange(e)} />
+          <label htmlFor="username">Email</label>
         </span>
         <br />
         <span className="p-float-label">
-          <InputText id="genero" value={user.genero} onChange={e => onInputChange(e)} />
-          <label htmlFor="username">genero</label>
+          <InputText id="Genero" value={genero} onChange={e => onInputChange(e)} />
+          <label htmlFor="username">Genero</label>
         </span>
-        <Button label="Submit" type="submit" className='button-form' icon="pi pi-check" />
+        <Button label="Submit" type="submit" className='button-form' icon="pi pi-check" onclick={onSubmit} />
       </form>
       <br />
 

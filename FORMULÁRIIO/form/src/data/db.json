@@ -9,13 +9,6 @@
   ],
   "usuarios": [
     {
-      "id": 9,
-      "nome": "Panchito Lordon",
-      "sobrenome": "Lordon",
-      "email": "plordon8@forbes.com",
-      "genero": "Male"
-    },
-    {
       "id": 10,
       "nome": "Melly Roll",
       "sobrenome": "Roll",
