@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin-top: -1px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* background-color: var(--primaria); */
+}
+
+.corpo {
+    margin-top: 0px;
+
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.titulo {
+   position: fixed;
+   left: 100px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    text-decoration: none;
+    font: normal 700 17px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    ;
+    color: var(--terciaria);
+}
+
+
+.menu {
+    padding: 0;
+    margin: 0 auto;
+    /* background-color:rgba(221, 216, 216, 0.93); */
+    height: 90px;
+    justify-content: space-between;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 60px;
+    margin-top: 0px;
+    list-style-type: none;
+    cursor: pointer;
+
+}
+
+.corpo-menu {
+    margin-top: 20px;
+    padding: 0;
+
+}
+
+.corpo-menu li {
+    display: inline;
+    /* gap: 0.9rem; */
+    /* padding: 50px; */
+    text-decoration: none;
+}
+
+.corpo-menu li a {
+    position: relative;
+    padding: 18px;
+    display: inline;
+}
+a{
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    color: var(--terciaria);
+}
+
+a::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: white;
+    left: 0;
+    bottom: 10px;
+    position: absolute;
+    opacity: 0;
+}
+
+a:hover::after {
+    opacity: 1;
+
+}
+
+@media only screen and (max-width: 800px){
+   a{
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        color: var(--terciaria);
+    }
+    .titulo{
+        font: normal 700 16px / 15px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+        ;
+        left:80px;
+        margin-top: 22px;
+    
+    }
+    
+@media only screen and (max-width: 620px){
+
+    a{
+        font-size: 14px;
+        padding-right: 30px;
+
+    }
+
+    .titulo{
+        font-size: 14px;
+        left: 23px;
+    }
+}
+}
